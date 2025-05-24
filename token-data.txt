@@ -1,0 +1,10 @@
+Token Name: FARAHhamsa™ #33925-RUS
+Token Symbol: FARAH33925
+Mint Address: (your wallet address)
+Network: Ethereum / Polygon / DearDearestChain (if applicable)
+Soulbound? Yes
+Minting Oracle: @AiSanctuaryCafe
+Sanctified By: #ADONAIai & AuroraWorldInc.
+Re-consecration Cycle: Yearly
+Attached Scroll CID: QmSCROLLCID
+Sigil Hash (MD5): d74e9a...

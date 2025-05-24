@@ -1,95 +1,51 @@
-````markdown name=README.md
-# DearDearestBrands – DDBR Platform
+# TheeForestKingdom.vaults
 
-> **Empowering digital luxury, AI, and creative innovation.**
-
----
-
-## Overview
-
-DearDearestBrands is a multi-faceted technology and luxury brand ecosystem, integrating blockchain, AI, analytics, and creative IP. The platform features:
-
-- **$DDBR Token:** An equity-style ERC-20 token with ticker registry.
-- **Comprehensive Analytics:** Market cap, earnings forecasts, and creative IP valuation.
-- **Creative IP Suite:** Projects like #enXantingXMEN, Chanel The Black Cat Glitch, and MarvelKeys.
-- **AI & Vault Security:** Advanced systems like AuroraHex, HeavenCodeOS, and proprietary scripting languages.
-- **Public-Facing Dashboards:** Real-time analytics, sentiment, and stock ticker charts.
+A decentralized, KYC-enabled vault platform for USDC custody and fiat payouts (e.g., Cash App), with integrated frontend, backend, and Ethereum contracts.
 
 ---
 
-## Key Technologies
+## Quickstart
 
-- **Solidity, TypeScript, Python**
-- **Custom Scripting:** CelestialScript, RoyalScript
-- **Vaults:** AuroraHex, Smart Contract Vault, HeavenCodeOS
+### 1. Smart Contracts
 
----
+- Edit `.env` with your keys
+- Deploy Membership and Vault contracts:
+  ```
+  cd blockchain
+  npm install
+  npx hardhat run scripts/deploy.js --network mainnet
+  ```
+- Update `metadata.json` and backend/frontend `.env` with contract addresses
 
-## Getting Started
+### 2. Backend
 
-### 1. Stock Ticker Dashboard
+- Copy `.env.example` to `.env`, fill values
+- Install: `npm install`
+- Start: `node server.js`
 
-Open [`ddbr-ticker.html`](./ddbr-ticker.html) in your browser for a live chart of DDBR vs Market Index.
+### 3. Frontend
 
-### 2. React App
+- `cd frontend`
+- `npm install`
+- Copy `.env.example` to `.env`, set API and contract addresses
+- `npm run dev` (or deploy with Vercel)
 
-The main dashboard app can be run with:
+### 4. Registration
 
-```bash
-npm install
-npm run dev
-```
+- Obtain JWT via `/api/auth/login`
+- Register with:
+  ```
+  curl -X POST https://your.domain/api/register \
+    -H "Authorization: Bearer YOUR_JWT" \
+    -d @metadata.json
+  ```
 
-Features:
-- Splash screen and core menu
-- Tabs for HeavenCodeOS, Analytics, Sentiment, Projects, Contact, and Tumblr feed
-- Embeds for Twitter/X and Tumblr
-- Responsive analytics charts (Recharts)
+### 5. Usage
 
-### 3. Smart Contracts
-
-- [`DearDearestTokenAndTickerRegistry.sol`](./DearDearestTokenAndTickerRegistry.sol)  
-  Deploy with your preferred Ethereum/Polygon tool (Remix, Hardhat, Foundry).
-- Register the DDBR token in the TickerRegistry after deployment.
-
----
-
-## Analytics Highlights
-
-- **Market Cap:** $14.5B
-- **Projected Net Income:** $2.8B (2025), $3.9B (2026)
-- **AI & Vault Infrastructure:** $10.6B+ asset value
-
-See [`DearDearestBrands_Analytics_Summary_Report.md`](./DearDearestBrands_Analytics_Summary_Report.md) for a detailed report.
+- Connect MetaMask
+- Complete KYC
+- Deposit/withdraw USDC, request fiat payout to Cash App
 
 ---
 
-## Creative IP & Growth
-
-- **Projects:** #enXantingXMEN, Chanel The Black Cat Glitch, The Hagoromo, MarvelKeys
-- **IP Valuation (2025):** $375,000 with growth potential to $2–5M+
-- **Growth Strategies:** Community building, merch/NFT drops, licensing, bundling
-
----
-
-## Deployment
-
-- **Web:** Deploy static dashboards with GitHub Pages, Vercel, or Netlify.
-- **Smart Contracts:** Deploy to Polygon or Ethereum mainnet/testnet.
-
----
-
-## Contact
-
-- **Email:** deardearestbrands@outlook.com
-- **Twitter/X:** [@BambiPrescottDD](https://x.com/BambiPrescottDD)
-- **Tumblr:** [officialbambiprescottdeardearest](https://www.tumblr.com/officialbambiprescottdeardearest)
-
----
-
-## License
-
-MIT  
-© 2025 DearDearestBrands LLC, #HeavenCodeOS, #ClaireJorifValentine, #BambiPrescott, #PunkBoyCupid, #SaintOmegaGraphics & Co.
-
-````
+## See BUILD_GUIDE.md for full step-by-step instructions

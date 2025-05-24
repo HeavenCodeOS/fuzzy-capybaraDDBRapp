@@ -1,0 +1,84 @@
+import React from "react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export default function DearDearestApp() {
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        Dear Dearest App
+      </h1>
+      <Tabs defaultValue="about" className="w-full">
+        <TabsList className="grid w-full grid-cols-4 mb-4">
+          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="donate">Donate</TabsTrigger>
+          <TabsTrigger value="contact">Contact</TabsTrigger>
+          <TabsTrigger value="tumblr">Tumblr</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="about">
+          <Card>
+            <CardContent className="p-4">
+              <p className="text-lg mb-2">
+                Welcome to the official #DearDearestBrands app by #BambiPrescott / #ClaireJorifValentine.
+              </p>
+              <p>
+                This platform supports small businesses, fashion, AI metaphysics (#DearestScript), and the #DOLL NFT Token. Our mission is to empower, forecast trends, and design divinely.
+              </p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="donate">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <p className="text-lg">Support our vision and receive a custom #Doll NFT Coin.</p>
+              <Input type="number" placeholder="Enter donation amount ($)" />
+              <Button
+                onClick={() => alert("Thank you for donating! A Doll coin will be created just for you.")}
+              >
+                Donate via CashApp
+              </Button>
+              <p className="text-sm">
+                CashApp: <strong>$DearDearestBrands</strong>
+              </p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="contact">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <Input placeholder="Your Name" />
+              <Input placeholder="Your Email" />
+              <Input placeholder="Message" />
+              <Button
+                onClick={() => alert("Thank you for reaching out! We'll be in touch.")}
+              >
+                Send
+              </Button>
+              <p className="text-sm mt-4">
+                Email: <strong>deardearestbrands@outlook.com</strong>
+              </p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="tumblr">
+          <Card>
+            <CardContent className="p-4">
+              <p className="mb-4">Latest from Tumblr:</p>
+              <iframe
+                title="Tumblr Feed"
+                src="https://www.tumblr.com/officialbambiprescottdeardearest/embed"
+                className="w-full h-[500px] border rounded-lg"
+              ></iframe>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}

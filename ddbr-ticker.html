@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#DDBR Stock Ticker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background: #ffeef8;
+      font-family: 'Courier New', monospace;
+      color: #333;
+      padding: 20px;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border: 4px dashed #f5c1e0;
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.3);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #d60087;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <h2>#DDBR Stock Ticker vs Market Index</h2>
+    <canvas id="ddbrChart"></canvas>
+  </div>
+  <script>
+    const labels = Array.from({ length: 30 }, (_, i) => `Day ${i + 1}`);
+    const ddbrPrices = labels.map((_, i) => 80 + Math.sin(i / 2) * 8 + Math.random() * 6);
+    const marketIndex = labels.map((_, i) => 70 + Math.cos(i / 2) * 4 + Math.random() * 2);
+
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: '#DDBR Stock ($USD)',
+          data: ddbrPrices,
+          borderColor: '#f06292',
+          backgroundColor: 'rgba(240, 98, 146, 0.2)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'General Market Index',
+          data: marketIndex,
+          borderColor: '#b39ddb',
+          backgroundColor: 'rgba(179, 157, 219, 0.2)',
+          tension: 0.3,
+          fill: true,
+        }
+      ]
+    };
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1500,
+          easing: 'easeInOutBounce'
+        },
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          }
+        },
+        interaction: {
+          mode: 'nearest',
+          axis: 'x',
+          intersect: false
+        },
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      },
+    };
+
+    new Chart(document.getElementById('ddbrChart'), config);
+  </script>
+</body>
+</html>
